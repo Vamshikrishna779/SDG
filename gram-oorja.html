@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOTR Solutions</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+/* Header & Navigation */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f0f8e0;
+    padding: 10px 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    gap: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s, background 0.3s;
+}
+
+nav ul li a:hover {
+    color: white;
+    
+}
+
+/* Responsive Menu (Mobile) */
+.menu-icon {
+    display: none; /* Show only in mobile view if needed */
+    font-size: 30px;
+    cursor: pointer;
+    width: 40px;
+    position: absolute;
+    top: 15px;
+    right: 20px; /* Align to the right corner */
+}
+
+
+
+/* Mobile Navigation */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: row;
+        width: 100%;
+        text-align: left;
+        position: absolute;
+        background-color: #f0f8e0;
+        left: 0;
+       
+        height:max-content;
+    }
+    .nav-links :hover{
+        color: aqua;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    nav ul li a{
+        margin-right: 10px;
+        word-wrap: break-word;
+    }
+    .menu-icon {
+        display: block;
+    }
+}
+/*Hero Section */
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 120px 20px;
+    color: black;
+}
+
+.hero h1 {
+    font-size: 32px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* Solutions Section */
+.solutions {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f5fff0;
+}
+
+.solutions h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.solutions h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #f4a62f;
+    margin: 10px auto;
+}
+
+.solutions-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.solution-item {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.solution-item:hover {
+    transform: scale(1.05);
+}
+
+.solution-item img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Impact Statistics Section */
+.impact {
+    padding: 50px 20px;
+    text-align: center;
+    background: #fff;
+}
+
+.impact-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.stat span {
+    font-size: 26px;
+    font-weight: bold;
+    display: block;
+    color: #f4a62f;
+}
+
+.stat p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Impact Banner */
+.impact-banner {
+    background: url('impact-image.jpg') no-repeat center center/cover;
+    position: relative;
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 50px;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.impact-data {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.impact-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background: #f4a62f;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 600;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background: #d98324;
+    transform: translateY(-2px);
+}
+
+/* Process Section */
+.process {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.process h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.process h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #f4a62f;
+    margin: 10px auto;
+}
+
+.process-description {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 10px;
+    line-height: 1.6;
+}
+
+/* Process Image */
+.process-image img {
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f8fff0;
+}
+
+.testimonials h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.testimonials h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #f4a62f;
+    margin: 10px auto;
+}
+
+.testimonial-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    padding: 20px;
+    font-style: italic;
+    line-height: 1.7;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-author {
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.testimonial-logo img {
+    max-width: 100px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .solutions-grid, .impact-stats, .impact-data {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <img src="assets/images/glogo.png" alt="Logo">
+        </div>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul class="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">WHAT WE DO</a></li>
+                <li><a href="#">IMPACT</a></li>
+                <li><a href="#">RESOURCES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Gram Oorja provides sustainable and community-driven energy solutions</h1>
+            <p>We have touched over 150,000 lives with more than 995 community projects.</p>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions">
+        <h2>OUR SOLUTIONS</h2>
+        <div class="solutions-grid">
+            <div class="solution-item">
+                <img src="assets/images/sol1.png" alt="Solution 1">
+                <p>SOLAR MICRO GRIDS</p>
+            </div>
+            <div class="solution-item">
+                <img src="assets/images/sol2.png" alt="Solution 2">
+                <p>BIO GAS COOKING GRIDS</p>
+            </div>
+            <div class="solution-item">
+                <img src="assets/images/sol3.png" alt="Solution 3">
+                <p>INSTITUTION LEVEL ENERGY GRIDS</p>
+            </div>
+        </div>
+    </section>
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="impact-stats">
+            <div class="stat">
+                <span>🔧 142</span>
+                <p>Solar Micro Grids</p>
+            </div>
+            <div class="stat">
+                <span>💧 780</span>
+                <p>Solar Water Pumps</p>
+            </div>
+            <div class="stat">
+                <span>🔥 14</span>
+                <p>Biogas Based Cooking Projects</p>
+            </div>
+            <div class="stat">
+                <span>🏛 74</span>
+                <p>Institution Level Energy Systems</p>
+            </div>
+        </div>
+
+        <p class="impact-description">
+            These solutions emerged out of an innovative approach to addressing grass-root problems. They result in better living standards through impact on education, health, environment, livelihood generation, women empowerment, communication, and entertainment.
+        </p>
+
+        <div class="impact-banner">
+            <div class="overlay">
+                <h2>OUR IMPACT</h2>
+                <div class="impact-data">
+                    <div>
+                        <span>👥 150,000</span>
+                        <p>LIVES IMPACTED</p>
+                    </div>
+                    <div>
+                        <span>🏠 995</span>
+                        <p>PROJECTS</p>
+                    </div>
+                </div>
+                <p class="impact-text">
+                    Energy is only an enabler. We measure impact in terms of improvement in an individual's daily life across social, economic, and environmental dimensions.
+                </p>
+                <a href="#" class="cta-button">READ MORE</a>
+            </div>
+        </div>
+
+    </section>
+    <!-- Our Process Section -->
+    <section class="process">
+        <h2>OUR PROCESS</h2>
+        <p class="process-description">
+            We have largely followed a community-driven approach, designing systems 
+            keeping productive aspirations in mind and ensuring long-term economic 
+            and environmental sustainability.
+        </p>
+
+        <div class="process-image">
+            <img src="assets/images/processg.png" alt="Process Diagram">
+        </div>
+
+        <a href="#" class="cta-button">READ MORE</a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Testimonials</h2>
+        <p class="testimonial-text">
+            "As a private social enterprise, the organization emphasizes establishing a strong 
+            public-private-non-profit partnership for a cluster of villages. This, together with 
+            grassroots ownership and engagement of the villagers, has become instrumental in 
+            ensuring the long-term sustainability of their solutions and the positive impact 
+            thereof. I wish Gram Oorja the best as they scale their solutions to hundreds and 
+            thousands of remote villages."
+        </p>
+
+        <p class="testimonial-author">
+            <strong>Aparna Katre</strong>, Assistant Professor of Cultural Entrepreneurship, 
+            Department of Foreign Languages and Literatures, University of Minnesota Duluth, USA
+        </p>
+
+        <div class="testimonial-logo">
+            <img src="assets/images/glogo.png" alt="Gram Oorja Logo">
+        </div>
+    </section>
+
+    <script src="assets/js/script.js" defer></script>
+
+</body>
+</html>

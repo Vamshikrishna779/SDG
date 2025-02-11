@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Sustainable Development Summit 2025</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Header Styling */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+          
+        }
+        
+        nav ul li {
+            padding: 5px 10px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .menu-icon {
+            display: none; /* Show only in mobile view if needed */
+            font-size: 30px;
+            cursor: pointer;
+            width: 40px;
+            position: absolute;
+            top: 15px;
+            right: 20px; /* Align to the right corner */
+        }
+        
+      
+        
+        /* Mobile Navigation */
+        @media screen and (max-width: 768px) {
+            .nav-links{
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+            }
+            .nav-links :hover{
+                color: aqua;
+            }
+        
+            nav ul.show {
+                display: flex;
+            }
+        
+            .menu-icon {
+                display: block;
+            }
+        }
+        .search-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        /* Event Banner */
+        .event-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px;
+           
+        }
+        
+        .banner-content img {
+            width: 100%;
+            
+        }
+        
+        .event-details {
+            padding: 20px;
+            max-width: 50%;
+        }
+        
+        .event-details h3 {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .event-details h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        
+        .event-details p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .read-more {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: white;
+            color: black;
+            border: 2px solid black;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .read-more:hover {
+            background: red;
+            color: white;
+            border-color: red;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .event-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .banner-content img {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Thematic Areas */
+        .thematic-areas {
+            text-align: center;
+            background: url('background.jpg') no-repeat center center/cover;
+            padding: 50px 20px;
+        }
+        
+        .thematic-areas h2 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .themes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .theme-item {
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .agriculture { background: #c26327; }
+        .climate { background: #273c63; }
+        .energy { background: #e5512a; }
+        .environment { background: #a0c34a; }
+        .habitat { background: #5eb144; }
+        .health { background: #783d96; }
+        .resources { background: #42a2db; }
+        
+        /* Spotlight Section */
+        .spotlight {
+            background: #f3f3f3;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .spotlight h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .spotlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .spotlight-card {
+            background: white;
+            display: flex;
+            align-items: center;
+            width: 45%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .spotlight-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .spotlight-text {
+            padding: 15px;
+            flex: 1;
+            text-align: left;
+        }
+        
+        .spotlight-text h3 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        
+        .spotlight-text p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .tag {
+            font-size: 12px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .read-more {
+            background: black;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+        
+        .read-more:hover {
+            background: red;
+        }
+        
+        /* Badge Colors */
+        .badge {
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        .cop29 { background: green; color: white; }
+        .energy { background: #0a8f3b; color: white; }
+        .climate { background: #2d6baf; color: white; }
+        .teri { background: #f57f20; color: white; }
+        .education { background: #28a745; color: white; }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .spotlight-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .spotlight-card {
+                width: 90%;
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .spotlight-card img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="assets/images/terinl.png" alt="TERI Logo">
+        </div>
+        <nav>
+            <div class="menu-toggle">&#9776;</div>
+            <ul class="nav-links">
+                <li><a href="#">OUR WORK</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">REGIONAL CENTRES</a></li>
+                <li><a href="#">PUBLICATIONS</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">EVENTS</a></li>
+                <li><a href="#">E-LEARNING</a></li>
+                <li><a href="#">TERI @ 50</a></li>
+            </ul>
+            
+        </nav>
+        <div class="search-icon">🔍</div>
+    </header>
+
+    <section class="event-banner">
+        <div class="banner-content">
+            <img src="assets/images/wsds-2025.png" alt="World Sustainable Development Summit 2025">
+        </div>
+        <div class="event-details">
+            <h3>EVENT</h3>
+            <h2>World Sustainable Development Summit 2025</h2>
+            <p>The 24th edition of WSDS will focus on the role of partnerships in driving transformative change and advancing the global sustainable development agenda. Under the theme <strong>‘Partnerships for Accelerating Sustainable Development and Climate Solutions,’</strong> the summit will provide a platform for global leaders for deliberation and knowledge exchange.</p>
+            <button class="read-more">Read More »</button>
+        </div>
+    </section>
+<!-- Thematic Areas Section -->
+<section class="thematic-areas">
+    <h2>THEMATIC AREAS</h2>
+    <div class="themes">
+        <div class="theme-item agriculture">Sustainable Agriculture</div>
+        <div class="theme-item climate">Climate Change</div>
+        <div class="theme-item energy">Energy</div>
+        <div class="theme-item environment">Environment</div>
+        <div class="theme-item habitat">Sustainable Habitat</div>
+        <div class="theme-item health">Health & Nutrition</div>
+        <div class="theme-item resources">Resources</div>
+    </div>
+</section>
+
+<!-- In the Spotlight Section -->
+<section class="spotlight">
+    <h2>IN THE SPOTLIGHT</h2>
+    <div class="spotlight-container">
+
+        <div class="spotlight-card">
+            <img src="assets/images/biodiversity.png" alt="Biodiversity Report">
+            <div class="spotlight-text">
+                <span class="tag">POLICY BRIEF</span>
+                <h3>Biodiversity and Land Restoration in India</h3>
+                <p>A narrative of India's sustainability efforts Vis-à-vis the World</p>
+                <button class="read-more">Read More »</button>
+                <span class="badge cop29">COP29</span>
+            </div>
+        </div>
+
+        <div class="spotlight-card">
+            <img src="assets/images/emissions.png" alt="Emissions Report">
+            <div class="spotlight-text">
+                <span class="tag">POLICY BRIEF</span>
+                <h3>Emissions and Consumption</h3>
+                <p>An approach to climate justice</p>
+                <button class="read-more">Read More »</button>
+                <span class="badge cop29">COP29</span>
+            </div>
+        </div>
+
+        <div class="spotlight-card">
+            <img src="assets/images/hydrogen.jpg" alt="Green Hydrogen">
+            <div class="spotlight-text">
+                <span class="tag">POLICY BRIEF</span>
+                <h3>Green Hydrogen - Path to Decarbonization</h3>
+                <button class="read-more">Read More »</button>
+                <span class="badge energy">Energy</span>
+            </div>
+        </div>
+
+        <div class="spotlight-card">
+            <img src="assets/images/financing.jpg" alt="Financing Just Transition">
+            <div class="spotlight-text">
+                <span class="tag">POLICY BRIEF</span>
+                <h3>Financing Just Transition</h3>
+                <p>Synergies between NCQG and JTWP</p>
+                <button class="read-more">Read More »</button>
+                <span class="badge climate">Climate Change</span>
+            </div>
+        </div>
+
+        <div class="spotlight-card">
+            <img src="assets/images/sustainability.jpg" alt="Sustainable Development">
+            <div class="spotlight-text">
+                <span class="tag">PUBLICATION</span>
+                <h3>TERI's Solutions for Sustainable Development</h3>
+                <button class="read-more">Read More »</button>
+                <span class="badge teri">TERI</span>
+            </div>
+        </div>
+
+        <div class="spotlight-card">
+            <img src="assets/images/elearning.jpg" alt="E-learning Platform">
+            <div class="spotlight-text">
+                <span class="tag">E-LEARNING PLATFORM</span>
+                <h3>Unlock the true potential of professionals</h3>
+                <button class="read-more">Know More »</button>
+                <span class="badge education">Education</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('show');
+    });
+</script>
+</body>
+</html>

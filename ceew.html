@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEEW Website</title>
+    <style>/* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        nav {
+            flex-grow: 1;
+            text-align: right;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li {
+            display: inline-block;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #00c4ff;
+        }
+        
+        .menu-icon {
+            display: none; /* Show only in mobile view if needed */
+            font-size: 30px;
+            cursor: pointer;
+            width: 40px;
+            position: absolute;
+            top: 15px;
+            right: 20px; /* Align to the right corner */
+        }
+        
+        
+        /* Donate Button */
+        .donate {
+            background: white;
+            color: black !important;
+            padding: 7px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .donate:hover {
+            background: #00c4ff;
+            color: white !important;
+        }
+        
+        /* Mobile Navigation */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: black;
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+            }
+        
+            nav ul.show {
+                display: flex;
+            }
+        
+            .menu-icon {
+                display: block;
+            }
+        }
+        
+        /* Grid Section */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 100px 20px 20px;
+        }
+        
+        .grid-item {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            
+            overflow: hidden;
+        }
+        
+        .large {
+            grid-column: span 2;
+            height: 300px;
+        }
+        
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 15px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .overlay a{
+            color: white;
+        }
+        
+        /* Responsive Grid */
+        @media screen and (max-width: 992px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        
+            .large {
+                grid-column: span 1;
+            }
+        }
+        
+        /* In Focus Section */
+        .infocus {
+            background: white;
+            padding: 50px 20px;
+        }
+        
+        .infocus-content h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .infocus-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .infocus-box img {
+            width: 40%;
+            border-radius: 10px;
+        }
+        
+        .infocus-text {
+            width: 60%;
+        }
+        
+        .infocus-text h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .infocus-text p a {
+            font-weight: bold;
+            color: #0073e6;
+            text-decoration: none;
+        }
+        
+        .infocus-text p a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Logos */
+        .logos {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .logos img {
+            height: 40px;
+        }
+        
+        /* Responsive In Focus */
+        @media screen and (max-width: 768px) {
+            .infocus-box {
+                flex-direction: column;
+            }
+        
+            .infocus-box img {
+                width: 100%;
+            }
+        
+            .infocus-text {
+                width: 100%;
+            }
+        }
+        
+        /* Contact Media Team */
+        .contact-team {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .contact-team h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+        
+        .team-member img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .team-member p {
+            font-size: 16px;
+        }
+        
+        /* Media Section */
+        .media-section {
+            display: flex;
+            gap: 20px;
+            padding: 50px 20px;
+            justify-content: center;
+        }
+        
+        .media-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .media-box h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .media-box img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .media-box p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .media-box a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #0073e6;
+        }
+        
+        .media-box a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Media Section */
+        @media screen and (max-width: 768px) {
+            .media-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    .video-section {
+        text-align: center;
+        padding: 30px;
+        background: #f4f4f4;
+    }
+    
+    .video-container iframe {
+        max-width: 800px;
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .arc-of-learning {
+        text-align: center;
+        padding: 50px;
+        background: white;
+    }
+    
+    .arc-of-learning h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .arc-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .arc-box {
+        width: 250px;
+        padding: 15px;
+        text-align: center;
+        background: #f4f4f4;
+        border-radius: 10px;
+    }
+    
+    .arc-box img {
+        width: 60px;
+        margin-bottom: 10px;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/images/ceewl.png" alt="CEEW Logo">
+        </div>
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul class="nav-links">
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Meet our Team</a></li>
+                <li><a href="#">Join our Events</a></li>
+                <li><a href="#">Media Room</a></li>
+                <li><a href="#">Work with Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                
+                <li><a href="#">Publications</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#" class="donate">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="grid">
+        <div class="grid-item large" style="background-image: url('assets/images/millet.jpg');">
+            <div class="overlay"><a href="https://www.ceew.in/publications/millet-mantra-culinary-centrepiece-indias-g20-presidency">Millet Mantra - The Culinary Centrepiece of India's G20 Presidency</a></div>
+        </div>
+        <div class="grid-item" style="background-image: url('assets/images/minerals.jpg');">
+            <div class="overlay">Addressing Vulnerabilities in the Supply Chain of Critical Minerals</div>
+        </div>
+        <div class="grid-item" style="background-image: url('assets/images/paris.jpg');">
+            <div class="overlay">Stepping up for the Paris Agreement</div>
+        </div>
+        <div class="grid-item large" style="background-image: url('assets/images/gadkari.jpg');">
+            <div class="overlay">Jobs, Growth and Sustainability is the Heart of the Indian Economy: Gadkari</div>
+        </div>
+        <div class="grid-item" style="background-image: url('book.jpg');">
+            <div class="overlay">India in Future Tense: 47 Words for</div>
+        </div>
+        <div class="grid-item" style="background-image: url('netzero.jpg');">
+            <div class="overlay">Implications of an Emissions Trading Scheme for India’s Net-Zero Strategy</div>
+        </div>
+    </section>
+    <section class="infocus">
+        <div class="infocus-content">
+            <h2>In Focus</h2>
+            <div class="infocus-box">
+                <img src="interview.jpg" alt="Interview">
+                <div class="infocus-text">
+                    <h3>Arunabha Ghosh in Conversation with António Guterres, UN Secretary General</h3>
+                    <p><a href="#">Arunabha Ghosh and António Guterres</a> discuss Mission LIFE (Lifestyle for Environment), 
+                    the ways to bridge the Global North and South, and the youth’s role in climate action.</p>
+                    <div class="logos">
+                        <img src="ddnews.png" alt="DD News">
+                        <img src="tedx.png" alt="TEDx">
+                        <img src="ted.png" alt="TED">
+                        <img src="natgeo.png" alt="National Geographic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-team">
+            <h3>Contact our Media Team</h3>
+            <div class="team-member">
+                <img src="riddhima.jpg" alt="Riddhima Sethi">
+                <p><strong>Riddhima Sethi</strong><br>Communications Manager<br>riddhima.sethi@ceew.in</p>
+            </div>
+            <div class="team-member">
+                <img src="tulshe.jpg" alt="Tulshe Agnihotri">
+                <p><strong>Tulshe Agnihotri</strong><br>Communications Specialist<br>tulshe.agnihotri@ceew.in</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="media-section">
+        <div class="media-box">
+            <h3>Comments</h3>
+            <img src="comments.jpg" alt="Comments">
+            <p><strong>अमर उजाला</strong> - दूध: मिल्क डिवाइड भारत के पोषण सुरक्षा के लिए एक चुनौती</p>
+            <a href="#">View All</a>
+        </div>
+        <div class="media-box">
+            <h3>Media Coverage</h3>
+            <img src="media.jpg" alt="Media Coverage">
+            <p><strong>The Hindu</strong> - How does La Nina affect India’s climate?</p>
+            <a href="#">View All</a>
+        </div>
+        <div class="media-box">
+            <h3>Press Releases</h3>
+            <img src="press.jpg" alt="Press Releases">
+            <p>CEEW and artists Thukral & Tagra unveil second edition of Sustain India art exhibition</p>
+            <a href="#">View All</a>
+        </div>
+        <div class="media-box">
+            <h3>News</h3>
+            <img src="news.jpg" alt="News">
+            <p>CEEW Wins 2023 CMCC Climate Change Communication Award</p>
+            <a href="#">View All</a>
+        </div>
+    </section>
+    <section class="video-section">
+        <div class="video-container">
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <section class="arc-of-learning">
+        <h2>Research to Action – CEEW’s Arc of Learning</h2>
+        <div class="arc-container">
+            <div class="arc-box">
+                <img src="identify.png" alt="Identify">
+                <h3>Identify</h3>
+                <p>Healthy scepticism to define the research question. Whose problem can we understand, whose problem can we solve, and who could help us do that?</p>
+            </div>
+            <div class="arc-box">
+                <img src="conceptualise.png" alt="Conceptualise">
+                <h3>Conceptualise</h3>
+                <p>Build an interdisciplinary team, design robust research methodology, choose partners, and differentiate clients from funders.</p>
+            </div>
+            <div class="arc-box">
+                <img src="understand.png" alt="Understand">
+                <h3>Understand</h3>
+                <p>Research through data collection, objectivity in method, and evidence-based analysis.</p>
+            </div>
+            <div class="arc-box">
+                <img src="convene.png" alt="Convene">
+                <h3>Convene</h3>
+                <p>Present findings to and exchange ideas within our network of scholars, industry experts and civil society representatives, within and outside India.</p>
+            </div>
+            <div class="arc-box">
+                <img src="communicate.png" alt="Communicate">
+                <h3>Communicate</h3>
+                <p>Core messages (based on facts) to inform policymakers, political leaders and wider public.</p>
+            </div>
+            <div class="arc-box">
+                <img src="support.png" alt="Support">
+                <h3>Support</h3>
+                <p>(As necessary) policy processes and pilot interventions for innovative solutions to complex policy.</p>
+            </div>
+            <div class="arc-box">
+                <img src="reflect.png" alt="Reflect">
+                <h3>Reflect</h3>
+                <p>On our research and actions, measure key metrics, and learn from our failures.</p>
+            </div>
+        </div>
+    </section>
+    <script src="assets/js/script.js" defer></script>
+
+</body>
+</html>

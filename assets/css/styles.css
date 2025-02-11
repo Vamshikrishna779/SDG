@@ -495,9 +495,6 @@ button:hover {
     margin-bottom: 1rem;
 }
 
-#join-movement p {
-    font-size: 1.0rem;
-}
 
 #join-movement a {
     color: #fff;
@@ -637,7 +634,6 @@ footer {
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
-    font-size: 14px;
     opacity: 0.8;
 }
 
@@ -800,7 +796,13 @@ table tr:hover {
     .about-content {
         text-align: center;
     }
+.service-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
 
+}
     .services-container {
         flex-direction: column;
         text-align: left;

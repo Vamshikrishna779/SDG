@@ -5,7 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustainable Development Projects</title>
     <link rel="stylesheet" href="assets/css/style1.css">
-    <script src="assets/js/script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuIcon = document.querySelector(".menu-icon");
+            const navLinks = document.querySelector(".nav-links");
+        
+            // Toggle menu on click
+            menuIcon.addEventListener("click", function () {
+                navLinks.classList.toggle("show");
+            });
+        
+            // Fix navigation issue (ensure Home link works)
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                link.addEventListener("click", function(event) {
+                    let target = this.getAttribute("href");
+        
+                    // Allow full navigation for external links or index.html
+                    if (target.startsWith("http") || target.includes("index.html")) {
+                        return;
+                    }
+        
+                    event.preventDefault(); // Prevent default only for internal links
+                    navLinks.classList.remove("show"); // Close menu after clicking a link
+        
+                    // Smooth scroll for in-page sections
+                    let section = document.querySelector(target);
+                    if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            });
+        });
+        
+        
+    </script>
 </head>
 <body>
 

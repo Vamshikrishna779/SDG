@@ -359,11 +359,11 @@ nav ul li a:hover {
         <nav>
             <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
             <ul class="nav-links">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">WHAT WE DO</a></li>
-                <li><a href="#">IMPACT</a></li>
-                <li><a href="#">RESOURCES</a></li>
-                <li><a href="#">CONTACT US</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#solutions">What we do</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="index.html">Contact us</a></li>
             </ul>
         </nav>
     </header>
@@ -378,7 +378,7 @@ nav ul li a:hover {
     </section>
 
     <!-- Solutions Section -->
-    <section class="solutions">
+    <section id="solutions" class="solutions">
         <h2>OUR SOLUTIONS</h2>
         <div class="solutions-grid">
             <div class="solution-item">
@@ -396,7 +396,7 @@ nav ul li a:hover {
         </div>
     </section>
     <!-- Impact Section -->
-    <section class="impact">
+    <section id="impact" class="impact">
         <div class="impact-stats">
             <div class="stat">
                 <span>🔧 142</span>
@@ -442,7 +442,7 @@ nav ul li a:hover {
 
     </section>
     <!-- Our Process Section -->
-    <section class="process">
+    <section id="process" class="process">
         <h2>OUR PROCESS</h2>
         <p class="process-description">
             We have largely followed a community-driven approach, designing systems 
@@ -458,7 +458,7 @@ nav ul li a:hover {
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section id="testimonils" class="testimonials">
         <h2>Testimonials</h2>
         <p class="testimonial-text">
             "As a private social enterprise, the organization emphasizes establishing a strong 
@@ -479,7 +479,40 @@ nav ul li a:hover {
         </div>
     </section>
 
-    <script src="assets/js/script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuIcon = document.querySelector(".menu-icon");
+            const navLinks = document.querySelector(".nav-links");
+        
+            // Toggle menu on click
+            menuIcon.addEventListener("click", function () {
+                navLinks.classList.toggle("show");
+            });
+        
+            // Fix navigation issue (ensure Home link works)
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                link.addEventListener("click", function(event) {
+                    let target = this.getAttribute("href");
+        
+                    // Allow full navigation for external links or index.html
+                    if (target.startsWith("http") || target.includes("index.html")) {
+                        return;
+                    }
+        
+                    event.preventDefault(); // Prevent default only for internal links
+                    navLinks.classList.remove("show"); // Close menu after clicking a link
+        
+                    // Smooth scroll for in-page sections
+                    let section = document.querySelector(target);
+                    if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            });
+        });
+        
+        
+    </script>
 
 </body>
 </html>
